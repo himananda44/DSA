@@ -23,23 +23,38 @@ public class SecondLargestElementInAnArray {
 
         int max = Integer.MIN_VALUE;
         int secondMax = Integer.MIN_VALUE;
-        boolean foundSecondMax = false;
 
         for (int num : arr) {
             if (num > max) {
                 secondMax = max;
                 max = num;
-                foundSecondMax = true;
             } else if (num > secondMax && num < max) {
                 secondMax = num;
-                foundSecondMax = true;
             }
         }
 
-        if (!foundSecondMax) {
+        if (secondMax == Integer.MIN_VALUE) {
             throw new IllegalArgumentException("Array does not have a second largest distinct element.");
         }
 
         return secondMax;
     }
 }
+
+
+
+/*
+Big O:
+Time complexity:
+The loop iterates n times (where n = arr.length).
+Each iteration takes O(1) time.
+So, total time complexity is O(n).
+
+Space complexity:
+Uses only a fixed number of variables (max, secondMax, foundSecondMax), so O(1) additional space.
+
+Summary:
+Operation	Complexity
+Time Complexity	O(n)
+Space Complexity	O(1)
+ */
